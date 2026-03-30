@@ -1,6 +1,44 @@
-<p>home works!</p>
+<!-- <app-header [userImg]="userProfilePNG" />
+<app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title" [bannerOverview]="(bannerDetail$ | async)?.overview"
+  [key]="(bannerVideo$ | async)?.results[0].key" />
+  
+<app-movie-carousel [title]="'Popular on Netflix'" [videoContents]="movies" />
+
+<app-movie-carousel [title]="'Trending TV shows'" [videoContents]="tvShows" />
+
+<app-movie-carousel [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies" />
+
+<app-movie-carousel [title]="'Popular Movies'" [videoContents]="popularMovies" />
+
+<app-movie-carousel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies" />
+
+<app-movie-carousel [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" /> -->
+
+
+
+
+
+<app-header [userImg]="userProfilePNG" />
+<ng-container *ngIf="bannerDetail$ | async as detail">
+  <app-banner 
+    [bannerTitle]="detail?.original_title || detail?.title" 
+    [bannerOverview]="detail?.overview"
+    [key]="(bannerVideo$ | async)?.results[0]?.key" />
+</ng-container>
+
+<app-movie-carousel *ngIf="movies.length" [title]="'Popular on Netflix'" [videoContents]="movies" />
+<app-movie-carousel *ngIf="tvShows.length" [title]="'Trending TV shows'" [videoContents]="tvShows" />
+<app-movie-carousel *ngIf="nowPlayingMovies.length" [title]="'Now Playing'" [videoContents]="nowPlayingMovies" />
+<app-movie-carousel *ngIf="popularMovies.length" [title]="'Popular Movies'" [videoContents]="popularMovies" />
+<app-movie-carousel *ngIf="topRatedMovies.length" [title]="'Top Rated'" [videoContents]="topRatedMovies" />
+<app-movie-carousel *ngIf="upcomingMovies.length" [title]="'Upcoming Movies'" [videoContents]="upcomingMovies" />
+
+
+
+
+ 
+ <!--  profile-----------------------------------------------------------------------------------------
 <div class="h-screen dark:bg-gray-700 bg-gray-200 pt-12">
-    <!-- Card start -->
     <div class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
         <div class="border-b px-4 pb-6">
             <div class="text-center my-4">
@@ -25,6 +63,5 @@
                 <a href="#" onclick="Signout()">LogOut</a>
             </div>
         </div>
-        <!-- Card end -->
     </div>
-</div>
+</div> -->

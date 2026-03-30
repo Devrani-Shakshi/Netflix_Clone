@@ -1,0 +1,18 @@
+<header class="h-[68px] z-10 bg-gray-900 sticky top-0 flex items-center justify-between px-10">
+  <!-- Logo + navitems -->
+  <div class="flex gap-5">
+    <img width="100" src="data:image/png;base64,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" alt="netflix-logo">
+    <ul class="flex items-center" *ngFor="let item of navList">
+      <li class="text-neutral-200 cursor-pointer text-sm font-extralight hover:text-gray-400 transition-[1s]">{{item}}</li>
+    </ul>
+  </div>
+  <!-- Welcome User | pofile Img | Singout -->
+  <div class="text-white flex items-center gap-4">
+    <div class="flex items-center gap-2 ">
+      <a href="/"><span>Welcome <strong>{{username}}</strong></span></a>
+      <img [src]="userImg" width="42" alt="user-img"  class="rounded-full object-cover">
+    </div>
+    &nbsp; | &nbsp;
+    <a (click)="auth.signOut()">Signout</a>
+  </div>
+</header>

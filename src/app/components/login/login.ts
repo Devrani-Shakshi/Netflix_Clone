@@ -1,14 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   imports: [],
-//   templateUrl: './login.html',
-//   styleUrl: './login.css',
-// })
-// export class Login {
-
-// }
 
 declare var google: any;
 import { Component, OnInit, inject } from '@angular/core';
@@ -26,9 +15,10 @@ export class Login implements OnInit {
   private router = inject(Router);
   ngOnInit(): void {
     google.accounts.id.initialize({
-   // client_id: '531121168764-fj0qmf042utb4q601id0dt2ojmdpe6ej.apps.googleusercontent.com',
     client_id : '770489672730-nvuh6kjnmml6q17mlg00besagautjflk.apps.googleusercontent.com',
-      callback: (resp: any)=> this.handleLogin(resp)
+      callback: (resp: any)=> this.handleLogin(resp),
+      ux_mode: 'popup'
+      
     });
 
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
