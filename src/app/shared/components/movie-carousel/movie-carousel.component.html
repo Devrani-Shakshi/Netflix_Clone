@@ -1,4 +1,4 @@
-<div class="container px-20 mt-14 mb-20">
+<!-- <div class="container px-20 mt-14 mb-20">
   <p class="font-semibold text-2xl my-3 ml-3">{{title}}</p>
   <div #swiperContainer class="swiper-container">
     <div class="swiper-wrapper">
@@ -12,6 +12,53 @@
               <p class="text-xs flex justify-between items-center">
                 <span class="text-green-500">Vote Average : {{movie.vote_average}}</span>
                 <i class="fa fa-2x fa-chevron-circle-down" aria-hidden="true"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Container: Responsive padding (4 on mobile, 10 on tablet, 20 on desktop) -->
+<div class="container mx-auto px-4 md:px-10 lg:px-20 mt-8 md:mt-14 mb-10 md:mb-20">
+  
+  <!-- Title: Responsive text size -->
+  <p class="font-semibold text-lg md:text-2xl my-3 ml-1 md:ml-3 text-white">{{title}}</p>
+
+  <div #swiperContainer class="swiper-container overflow-hidden">
+    <div class="swiper-wrapper flex">
+      <ng-container *ngFor="let movie of videoContents">
+        <!-- Slide: Relative positioning for the hover description -->
+        <div (mouseenter)="setHoverMovie(movie)" 
+             (mouseleave)="clearHoverMovie()" 
+             class="swiper-slide relative flex-shrink-0 cursor-pointer transition-transform duration-300 hover:z-10 md:hover:scale-105">
+          
+          <!-- Image: Standardized aspect ratio -->
+          <img [src]="movie.poster_path | image" 
+               alt="{{movie.title || movie.name}}" 
+               class="rounded-md w-full h-auto object-cover shadow-md" />
+
+          <!-- Description Overlay: Hidden on small touch devices for better UX, or scaled down -->
+          <div @fade *ngIf="(movie.title === this.selectedContent) || (movie.name === this.selectedContent)" 
+               class="desc absolute inset-0 bg-black/80 p-2 md:p-4 flex flex-col justify-between rounded-md pointer-events-none transition-opacity">
+            
+            <div>
+              <span class="text-sm md:text-base flex flex-wrap font-bold text-white">
+                {{movie.original_title || movie.name}}
+              </span>
+              <!-- Truncated overview: less text on smaller screens -->
+              <p class="text-[10px] md:text-xs my-2 md:my-3 text-gray-300">
+                {{movie.overview | description: (isMobile ? 80 : 150)}}
+              </p>
+            </div>
+
+            <div class="pb-1">
+              <p class="text-[10px] md:text-xs flex justify-between items-center text-white">
+                <span class="text-green-500 font-bold">Rating: {{movie.vote_average}}</span>
+                <i class="fa fa-lg md:fa-2x fa-chevron-circle-down text-gray-400" aria-hidden="true"></i>
               </p>
             </div>
           </div>

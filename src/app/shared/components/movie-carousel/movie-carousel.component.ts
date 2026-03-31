@@ -26,6 +26,7 @@ export class MovieCarouselComponent implements OnInit, AfterViewInit {
   @Input() title!: string;
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
   selectedContent: string | null = null;
+  isMobile = window.innerWidth < 768;
   constructor() { }
   ngAfterViewInit(): void {
    this.initSwiper();
@@ -83,3 +84,5 @@ export class MovieCarouselComponent implements OnInit, AfterViewInit {
     this.selectedContent = null;
   }
 }
+
+

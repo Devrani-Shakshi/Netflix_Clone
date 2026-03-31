@@ -1,18 +1,133 @@
+<!-- 
 <header class="h-[68px] z-10 bg-gray-900 sticky top-0 flex items-center justify-between px-10">
-  <!-- Logo + navitems -->
+
   <div class="flex gap-5">
-    <img width="100" src="data:image/png;base64,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" alt="netflix-logo">
-    <ul class="flex items-center" *ngFor="let item of navList">
-      <li class="text-neutral-200 cursor-pointer text-sm font-extralight hover:text-gray-400 transition-[1s]">{{item}}</li>
+    <img width="100"
+      src="data:image/png;base64,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"
+      alt="netflix-logo" />
+    <ul class="flex items-center gap-5">
+      <li *ngFor="let item of navList" (click)="scrollToSection(item)"
+        class="text-neutral-200 cursor-pointer text-sm font-extralight hover:text-gray-400 transition-all duration-300">
+        {{ item }}
+      </li>
     </ul>
   </div>
-  <!-- Welcome User | pofile Img | Singout -->
+
   <div class="text-white flex items-center gap-4">
-    <div class="flex items-center gap-2 ">
-      <a href="/"><span>Welcome <strong>{{username}}</strong></span></a>
-      <img [src]="userImg" width="42" alt="user-img"  class="rounded-full object-cover">
+    <div class="flex items-center gap-2">
+      <a href="/"><span>Welcome <strong>{{ username }}</strong></span></a>
+
+      <img [src]="userImg" width="42" alt="user-img" class="rounded-full object-cover cursor-pointer"
+        (click)="toggleModal(true)" />
     </div>
     &nbsp; | &nbsp;
-    <a (click)="auth.signOut()">Signout</a>
+    <a class="cursor-pointer" (click)="auth.signOut()">Signout</a>
   </div>
 </header>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-50"
+  [class.hidden]="!isModalOpen">
+  <div class="bg-white p-6 rounded shadow-lg max-w-sm w-full ">
+    <h2 class="text-xl font-bold mb-4 text-gray-800 ">User Details</h2>
+
+    <div class="bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden shadow-inner p-6">
+      <div class="text-center">
+        <img class="h-24 w-24 rounded-full border-4 border-white dark:border-gray-800 mx-auto mb-4" [src]="userImg"
+          alt="Profile" />
+
+        <h3 class="font-bold text-xl text-gray-800 dark:text-white">{{ name }}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{{ email }}</p>
+
+        <div class="inline-flex text-gray-700 dark:text-gray-300 items-center text-sm">
+          <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+          </svg>
+          {{ hd }}
+        </div>
+      </div>
+
+      <div class="flex justify-center mt-6 border-t pt-4">
+        <button (click)="auth.signOut()" class="text-red-600 font-semibold hover:underline">
+          Log Out
+        </button>
+      </div>
+    </div>
+
+    <button class="mt-4 w-full bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition"
+      (click)="toggleModal(false)">
+      Close
+    </button>
+  </div>
+</div> -->
+
+
+<header class="h-[68px] z-30 bg-gray-900 sticky top-0 flex items-center justify-between px-4 md:px-10">
+  <!-- Logo + Desktop Nav -->
+  <div class="flex items-center gap-5">
+    <img width="100" 
+      src="data:image/png;base64,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"
+    alt="netflix-logo" class="w-20 md:w-24" />
+    
+    <ul class="hidden lg:flex items-center gap-5">
+      <li *ngFor="let item of navList" (click)="scrollToSection(item)"
+        class="text-neutral-200 cursor-pointer text-sm font-extralight hover:text-gray-400 transition-all duration-300">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- User Actions + Mobile Menu Toggle -->
+  <div class="text-white flex items-center gap-3 md:gap-6">
+    <div class="flex items-center gap-2">
+      <span class="hidden sm:inline text-sm">Welcome <strong>{{ username }}</strong></span>
+      <img [src]="userImg" width="38" alt="user-img" 
+        class="rounded-full object-cover cursor-pointer border border-gray-700"
+        (click)="toggleModal(true)" />
+    </div>
+
+    <button class="hidden md:block text-sm hover:text-gray-400 transition" (click)="auth.signOut()">Signout</button>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="lg:hidden p-2 text-gray-300" (click)="toggleMobileMenu()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div *ngIf="isMenuOpen" 
+    class="lg:hidden absolute top-[68px] left-0 w-full bg-gray-900 border-t border-gray-800 shadow-xl py-4 flex flex-col items-center gap-4 animate-fade-in">
+    <li *ngFor="let item of navList" (click)="scrollToSection(item)"
+      class="list-none text-neutral-300 cursor-pointer text-lg hover:text-white">
+      {{ item }}
+    </li>
+    <button (click)="auth.signOut()" class="text-red-500 font-bold mt-2 border-t border-gray-800 w-3/4 pt-4">Signout</button>
+  </div>
+</header>
+
+<!-- User Profile Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 transition-opacity px-4"
+  [class.hidden]="!isModalOpen">
+  <div class="bg-white p-6 rounded-2xl shadow-2xl max-w-sm w-full transform transition-all scale-100">
+    <h2 class="text-xl font-bold mb-4 text-gray-900">User Details</h2>
+    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden p-6 border border-gray-100">
+      <div class="text-center">
+        <img class="h-24 w-24 rounded-full border-4 border-white shadow-md mx-auto mb-4 object-cover" [src]="userImg" alt="Profile" />
+        <h3 class="font-bold text-xl text-gray-800 dark:text-white">{{ name }}</h3>
+        <p class="text-sm text-gray-500 mb-4">{{ email }}</p>
+        <div class="inline-flex text-gray-600 dark:text-gray-300 items-center text-sm">
+          <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /></svg>
+          {{ hd }}
+        </div>
+      </div>
+      <div class="flex justify-center mt-6 border-t pt-4">
+        <button (click)="auth.signOut()" class="text-red-600 font-bold hover:underline">Log Out</button>
+      </div>
+    </div>
+    <button class="mt-4 w-full bg-gray-900 text-white font-medium py-2 rounded-xl hover:bg-gray-800 transition" (click)="toggleModal(false)">
+      Close
+    </button>
+  </div>
+</div>
